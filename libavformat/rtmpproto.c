@@ -2655,7 +2655,7 @@ static int rtmp_open(URLContext *s, const char *uri, int flags, AVDictionary **o
                         "?listen&listen_timeout=%d&tcp_nodelay=%d",
                         rt->listen_timeout * 1000, rt->tcp_nodelay);
         else
-            ff_url_join(buf, sizeof(buf), "tcp", NULL, hostname, port, "?tcp_nodelay=%d", rt->tcp_nodelay);
+            ff_url_join(buf, sizeof(buf), "tcp", NULL, hostname, port, "?tcp_nodelay=%d&timeout=%d", rt->tcp_nodelay, 4000000);
     }
 
 reconnect:
